@@ -14,11 +14,14 @@ function Hangman () {
 	this.start = function () {
 		this.lives = 10;
 		this.pickWord();
+
 	}
 	this.pickWord = function () {
 		var randomize = words[Math.floor(Math.random()*words.length)];
+		//var randomize = "ball";
 		this.currentWord = new Word(randomize);
 		// console.log(this.currentWord);
+		console.log(this.currentWord.toString());
 		this.userGuess();
 	}
 	this.userGuess = function () {
@@ -31,6 +34,7 @@ function Hangman () {
 			    ])
 		  	.then((answer) => {
 			    var guessCorrect = this.currentWord.chooseLetter(answer.letter);
+			    //console.log(guessCorrect);
 			    if (guessCorrect === false) {
 			    	this.lives--;
 			    	console.log("You have " +this.lives + " lives left");

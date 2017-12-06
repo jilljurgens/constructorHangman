@@ -1,23 +1,14 @@
-var word = require("./word.js");
-
-
-function Letter(character){
+function Letter (letter) {
+	this.letter = letter;
 	this.visible = false;
-	this.character = character;
-	console.log(this.character);
-	this.printWord = function(word){
-	//	console.log("what am i" + this.letters.join(" "));
-	};
-};
-	//console.log("Print word" + this.printWord());
-
-Letter.prototype.toString = function() {
-	if (this.visible == true){
-		return this.character;
+}
+Letter.prototype.toString = function () {
+	if (this.visible === false) {
+		return "_";
 	}
 	else {
-	 	return "_";
-	}	
+		return this.letter;
+	}
 };
 Letter.prototype.guess = function (guess) {
 	if (this.letter === guess) {
@@ -27,5 +18,5 @@ Letter.prototype.guess = function (guess) {
 	else {
 		return false;
 	}
-};	
+};
 module.exports = Letter;
